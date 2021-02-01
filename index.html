@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD is MD</title>
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="content">
+        <div class="user">
+            <div class="avatar">
+                <img src="avatar.webp" alt="">
+            </div>
+            <div class="title">
+                <h1>
+                    @mohammaddanishj
+                </h1>
+                <p>
+                    MD id MD <br>
+                </p>
+            </div>
+        </div>
+        <div class="menu">
+            <button onclick="handleClick(event, 'links')" class="active">
+                Social
+            </button>
+            <button onclick="handleClick(event, 'posts')">
+                Projects
+            </button>
+        </div>
+        <div class="contents">
+            <div class="links">
+                <a target="_blank" href="https://www.youtube.com/mdtechs">
+                    <i class='bx bxl-youtube'></i>
+                    <span>
+                        Youtube
+                    </span>
+                </a>
+                <a target="_blank" href="https://www.instagram.com/mohammaddanishj/">
+                    <i class='bx bxl-instagram-alt'></i>
+                    <span>
+                        Instagram
+                    </span>
+                </a>
+                <a target="_blank" href="https://github.com/mdtechs">
+                    <i class='bx bxl-github'></i>
+                    <span>
+                        Github
+                    </span>
+                </a>
+                <a target="_blank" href="https://twitter.com/mohammaddanishj">
+                    <i class='bx bxl-twitter'></i>
+                    <span>
+                        Twitter
+                    </span>
+                </a>
+            </div>
+
+            <div class="posts">
+                <a class="post" target="_blank" href="https://www.alonemedia.ml">
+                    <div class="file">
+                        <img src="01.jpg" alt="">
+                    </div>
+
+                    <footer>
+                        <h3>
+                            Alone Media
+                        </h3>
+                        <p>
+                            Alone Media
+                        </p>
+                    </footer>
+
+                    <div class="effect"></div>
+                </a>
+                <a class="post" target="_blank" href="https://www.soleacademy.ml">
+                    <div class="file">
+                        <img src="02.jpg" alt="">
+                    </div>
+
+                    <footer>
+                        <h3>
+                            Sole Academy
+                        </h3>
+                        <p>
+                            Sole Academy
+                        </p>
+                    </footer>
+
+                    <div class="effect"></div>
+                </a>
+                <a class="post" target="_blank" href="https://www.codehare.tk">
+                    <div class="file">
+                        <img src="03.jpg" alt="">
+                    </div>
+
+                    <footer>
+                        <h3>
+                            Code Share
+                        </h3>
+                        <p>
+                            Code Share
+                        </p>
+                    </footer>
+
+                    <div class="effect"></div>
+                </a>
+                <a class="post" target="_blank" href="https://www.andeywale.rf.gd">
+                    <div class="file">
+                        <img src="04.jpg" alt="">
+                    </div>
+
+                    <footer>
+                        <h3>
+                            S Shop
+                        </h3>
+                        <p>
+                            S Shop
+                        </p>
+                    </footer>
+
+                    <div class="effect"></div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const user = document.querySelector('.user')
+    const menu = document.querySelector('.menu')
+    const contents = document.querySelector('.contents')
+    const links = document.querySelector('.contents .links')
+    const posts = document.querySelector('.contents .posts')
+    window.addEventListener("load", function(event) {
+        const vh = window.innerHeight * 0.01
+        document.documentElement.style.setProperty('--vh', `${vh}px`)
+
+        setTimeout(function() {
+            window.scrollTo(0, 1)
+        }, 0)
+        const h = window.innerHeight - menu.clientHeight - user.clientHeight
+        contents.style.height = `${h}px`
+        links.style.height = `${h}px`
+        posts.style.height = `${h}px`
+    })
+
+    function handleClick(evt, name) {
+        const items = document.querySelectorAll('.menu button')
+        const el = evt.target
+        items.forEach((item) => {
+            item.classList.remove('active')
+        })
+        el.classList.add('active')
+        const elScroll = document.querySelector(`.${name}`)
+        contents.scrollTo(elScroll.offsetLeft, 0)
+    }
+
+    contents.addEventListener('scroll', (evt) => {
+        if (evt.target.scrollLeft > window.innerWidth / 2 && evt.target.scrollLeft < window.innerWidth + (window.innerWidth / 2)) {
+            menu.querySelector('button:nth-child(1)').classList.remove('active')
+            menu.querySelector('button:nth-child(2)').classList.add('active')
+            menu.style.borderRadius = "0 0 0 80px";
+            // menu.querySelector('button:nth-child(3)').classList.remove('active')
+        } else if (evt.target.scrollLeft < window.innerWidth / 2) {
+            menu.querySelector('button:nth-child(1)').classList.add('active')
+            menu.querySelector('button:nth-child(2)').classList.remove('active')
+            menu.style.borderRadius = "0 0 80px 0";
+        }
+        // menu.querySelector('button:nth-child(3)').classList.remove('active')
+        // } else if (evt.target.scrollLeft > window.innerWidth + (window.innerWidth / 2)) {
+        // menu.querySelector('button:nth-child(2)').classList.remove('active')
+        // menu.querySelector('button:nth-child(3)').classList.add('active')
+        // }
+    })
+</script>
+
+</html>

@@ -1,0 +1,11 @@
+{
+    "name": "Links Mohammadd Danish",
+    "short_name": "Mohammad Danish - youtube - instagram - github - twitter - projects",
+    "description": "Links Mohammad Danish",
+    "theme_color": "#fff",
+    "background_color": "white",
+    "display": "standalone",
+    "Scope": "./",
+    "start_url": "index.html",
+    "splash_pages": null
+}
