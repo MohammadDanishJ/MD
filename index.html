@@ -144,6 +144,7 @@
         setTimeout(function() {
             window.scrollTo(0, 1)
         }, 0)
+
         const h = window.innerHeight - menu.clientHeight - user.clientHeight
         contents.style.height = `${h}px`
         links.style.height = `${h}px`
@@ -163,20 +164,15 @@
 
     contents.addEventListener('scroll', (evt) => {
         if (evt.target.scrollLeft > window.innerWidth / 2 && evt.target.scrollLeft < window.innerWidth + (window.innerWidth / 2)) {
-            menu.querySelector('button:nth-child(1)').classList.remove('active')
-            menu.querySelector('button:nth-child(2)').classList.add('active')
+            // menu.querySelector('button:nth-child(1)').classList.remove('active')
+            // menu.querySelector('button:nth-child(2)').classList.add('active')
             menu.style.borderRadius = "0 0 0 80px";
             // menu.querySelector('button:nth-child(3)').classList.remove('active')
         } else if (evt.target.scrollLeft < window.innerWidth / 2) {
-            menu.querySelector('button:nth-child(1)').classList.add('active')
-            menu.querySelector('button:nth-child(2)').classList.remove('active')
+            // menu.querySelector('button:nth-child(1)').classList.add('active')
+            // menu.querySelector('button:nth-child(2)').classList.remove('active')
             menu.style.borderRadius = "0 0 80px 0";
         }
-        // menu.querySelector('button:nth-child(3)').classList.remove('active')
-        // } else if (evt.target.scrollLeft > window.innerWidth + (window.innerWidth / 2)) {
-        // menu.querySelector('button:nth-child(2)').classList.remove('active')
-        // menu.querySelector('button:nth-child(3)').classList.add('active')
-        // }
     })
 </script>
 
